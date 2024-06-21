@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import BACKEND from '../config';
 
 const TaskForm = ({ task, setTask, addTask }) => {
 
@@ -20,7 +21,7 @@ const TaskForm = ({ task, setTask, addTask }) => {
         }
         const newTask = { title: title, description: description };
         axios
-            .post('http://localhost:5000/api/tasks', newTask)
+            .post(`${BACKEND}/tasks`, newTask)
             .then((res) => {
                 addTask(res.data);
                 setTask({

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Navbar from './components/Navbar';
 import TaskList from './components/TaskList';
 import TaskForm from './components/TaskForm';
+import BACKEND from './config';
 
 const App = () => {
 
@@ -17,7 +18,8 @@ const App = () => {
 
     useEffect(() => {
         const fetchTasks = () => {
-            const url = 'http://localhost:5000/api/tasks';
+            const url = `${BACKEND}/tasks`;
+            console.log(url);
             axios.get(url)
                 .then((response) => {
                     setTasks(response.data);

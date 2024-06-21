@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import BACKEND from '../config';
 
 const TaskList = ({ task, setTask, tasks, setListUpdated }) => {
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/api/tasks/${id}`)
+        axios.delete(`${BACKEND}/tasks/${id}`)
             .then((res) => {
                 console.log(res);
                 setListUpdated(true);
@@ -23,7 +24,7 @@ const TaskList = ({ task, setTask, tasks, setListUpdated }) => {
             return;
         }
 
-        axios.put(`http://localhost:5000/api/tasks/${id}`, task)
+        axios.put(`${BACKEND}/tasks/${id}`, task)
             .then((res) => {
                 console.log(res);
                 setListUpdated(true);
